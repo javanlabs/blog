@@ -1,13 +1,13 @@
 enabled: true
-from: your@email.here
-to: your@email.here
+from: blog@javan.co.id
+to: blog@javan.co.id
 mailer:
-  engine: mail
+  engine: smtp
   smtp:
-    server: localhost
-    port: 25
-    encryption: none
-    user: ''
-    password: ''
+    server: smtp.sendgrid.net
+    port: 587
+    encryption: tls
+    user: 'javan'
+    password: 'j4v4nLabs'
   sendmail:
     bin: '/usr/sbin/sendmail'
