@@ -1,0 +1,33 @@
+title: 'Official Javan Blog'
+author:
+  name: 'Javan Team'
+  email: blog@javan.co.id
+  footer: 'handcrafted by @flamekaizar'
+  footer2: 'Ported by TeamGrav'
+  url: 'http://afnizar.com'
+  url2: 'http://getgrav.org'
+taxonomies:
+  - category
+  - tag
+metadata:
+  description: 'Official Blog of Javan Cipta Solusi'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+blog:
+  route: /blog
+intro: 'Find problem, create solution, delight customers'
+intro_avatar: avatar.png
+menu:
+#  -
+#    text: 'External link'
+#    link: '#'
+social:
+  -
+    icon: link
+    link: 'http://javan.co.id'
+  -
+    icon: facebook
+    link: 'http://facebook.com/javancs'
