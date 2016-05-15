@@ -28,7 +28,8 @@
     "button",
     "icon",
     "grid",
-    "menu"
+    "menu",
+    "visibility"
   ],
   "version": "2.1.8"
 }

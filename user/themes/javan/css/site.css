@@ -18,8 +18,39 @@ img {
     text-align: left !important;
 }
 
-.topbar{padding-top: 30px}
-.topbar__title{margin: 10px 0}
+.topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 1000;
+    overflow: hidden;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    transition: all .8s;
+    text-align:center;
+    height: 121px;
+    line-height:120px;
+    font-size: 2em;
+    font-weight: 300;
+}
+.topbar .topbar__inner {
+    border-bottom: 1px solid #eee;
+}
+body {margin-top: 150px}
+body.shrink .topbar{
+    height: 51px;
+    line-height:50px;
+    font-size: 1.3em;
+}
+
+body .topbar .ui.image.mini {
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    transition: all .8s;
+}
+body.shrink .topbar .ui.image.mini {width: 20px}
 
 .post__title {margin-bottom: 0; font-size: 2.2em}
 .post .post__body p {

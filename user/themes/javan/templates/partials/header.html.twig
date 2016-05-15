@@ -1,9 +1,10 @@
-<header class="ui container topbar">
-    <div class="ui segment basic center aligned">
-        <a class="item" href="{{ base_url_absolute }}">
-            <img src="{{ url('theme://images/avatar.png') }}" alt="" class="ui image mini centered">
-            <h1 class="topbar__title soft-muted">{{ site.title }}</h1>
-        </a>
+<header class="topbar">
+    <div class="ui container">
+        <div class="topbar__inner">
+            <a class="header" href="{{ base_url_absolute }}">
+                <img src="{{ url('theme://images/avatar.png') }}" alt="" class="ui image mini avatar">
+                <span class="topbar__title soft-muted">{{ site.title }}</span>
+            </a>
+        </div>
     </div>
-    <div class="ui divider section"></div>
 </header>
