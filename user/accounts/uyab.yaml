@@ -1,0 +1,12 @@
+email: uyab.exe@gmail.com
+fullname: 'Bayu Hendra Winata'
+title: 'Head of Software Development'
+state: enabled
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$ThFKL5dQEiuTTFm7KifJ2OV0nMiw5Xo1YrZgU0x34iyRx6HwJpYxy
+reset: '979e8c55a1b53fc5177b967a6d83bf91::1463735778'

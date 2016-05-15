@@ -22,14 +22,6 @@ logs/*
 !logs/.*
 images/*
 !images/.*
-user/accounts/*
-!user/accounts/.*
-user/data/*
-!user/data/.*
-user/themes/*
-!user/themes/.*
-!user/themes/javan*
-user/localhost/config/security.yaml
 
 # OS Generated
 .DS_Store*
