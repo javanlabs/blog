@@ -34,9 +34,8 @@ img {
     line-height: 1.8em;
 }
 
-footer {
+footer.ui.segment.secondary {
     background-color: #fafafa;
-    padding: 100px;
     color: rgba(0, 0, 0, 0.4) !important;
 }
 footer h4 {font-weight: 700; margin-bottom: 5px;}
