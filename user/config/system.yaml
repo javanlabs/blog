@@ -1,6 +1,6 @@
 home:
   alias: '/blog'
-
+  hide_in_urls: true
 pages:
   theme: javan
   process:

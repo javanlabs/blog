@@ -1,0 +1,33 @@
+{
+  "base": "semantic/",
+  "paths": {
+    "source": {
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
+    },
+    "output": {
+      "packaged": "../user/themes/javan/dist/",
+      "uncompressed": "../user/themes/javan/dist/components/",
+      "compressed": "../user/themes/javan/dist/components/",
+      "themes": "../user/themes/javan/dist/themes/"
+    },
+    "clean": "../user/themes/javan/dist/"
+  },
+  "permission": false,
+  "rtl": "No",
+  "components": [
+    "reset",
+    "site",
+    "container",
+    "divider",
+    "header",
+    "image",
+    "segment",
+    "button",
+    "icon",
+    "menu"
+  ],
+  "version": "2.1.8"
+}

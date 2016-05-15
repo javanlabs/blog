@@ -1,0 +1,7 @@
+/*******************************
+     User Global Variables
+*******************************/
+@importGoogleFonts : false;
+@fontName : 'Proxima Nova';
+@headerFontWeight : 300;
+@linkColor : #0189D2;

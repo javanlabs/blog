@@ -1,3 +1,6 @@
+# Node Modules
+node_modules/
+
 # Content
 user/pages/01.blog/*/*
 
