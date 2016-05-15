@@ -21,6 +21,7 @@ logs/*
 !logs/.*
 images/*
 !images/.*
+user/accounts
 
 # OS Generated
 .DS_Store*
