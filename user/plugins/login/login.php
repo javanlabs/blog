@@ -75,6 +75,7 @@ class LoginPlugin extends Plugin
 
         // Autoload classes
         $autoload = __DIR__ . '/vendor/autoload.php';
+        die($autoload);
         if (!is_file($autoload)) {
             throw new \Exception('Login Plugin failed to load. Composer dependencies not met.');
         }

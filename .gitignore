@@ -6,7 +6,6 @@ user/pages/01.blog/*/*
 
 # Composer
 .composer
-vendor/
 
 # Sass
 .sass-cache
