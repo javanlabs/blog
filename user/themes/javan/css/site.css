@@ -21,9 +21,17 @@ img {
 .topbar{padding-top: 30px}
 .topbar__title{margin: 10px 0}
 
-.post__title {margin-bottom: 0}
+.post__title {margin-bottom: 0; font-size: 2.2em}
+.post .post__body p {
+    color: rgba(0,0,0,.7);
+}
 .post--single .post__title {
     font-size: 2.5em;
+}
+
+.post--single .post__body p {
+    font-size: 1.2rem;
+    line-height: 1.8em;
 }
 
 footer {
