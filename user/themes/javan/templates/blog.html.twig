@@ -1,0 +1,30 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set collection = page.collection() %}
+
+{% block content %}
+    <div class="posts">
+        {% for page in collection %}
+            <div class="post">
+                <div class="ui basic segment center aligned">
+                    <h2 class="post__title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+                    <div class="muted post__meta">{{ page.date|date() }}</div>
+                </div>
+                <div class="post__body">
+                    {{ page.summary }}
+                </div>
+                <div class="ui basic segment right aligned">
+                    <a href="{{ page.url }}" class="ui button large blue">Read More <i class="icon angle right"></i></a>
+                </div>
+            </div>
+
+            <div class="ui divider section hidden"></div>
+        {% endfor %}
+
+        {% if config.plugins.pagination.enabled and collection.params.pagination %}
+            <div class="ui segment basic center aligned">
+                {% include 'partials/pagination.html.twig' with {'base_url': page.url, 'pagination':collection.params.pagination} %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    <div class="post--single">
+        <div class="ui basic segment center aligned">
+            <h2 class="post__title">{{ page.title }}</h2>
+            <div class="muted post__meta">{{ page.date|date() }}</div>
+        </div>
+        <div class="post__body">
+            {{ page.content }}
+        </div>
+    </div>
+
+    <div class="ui segment basic center aligned">
+        <a href="{{ base_url_absolute }}" class="ui button basic blue big"><i class="icon angle left"></i> Return to home</a>
+    </div>
+{% endblock %}
+
