@@ -2,12 +2,12 @@ home:
   alias: '/blog'
 
 pages:
-  theme: saturn
+  theme: javan
   process:
     markdown: true
     twig: false
   markdown:
-    extra: true  
+    extra: true
 
 cache:
   enabled: false
