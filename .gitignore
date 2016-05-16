@@ -21,7 +21,10 @@ logs/*
 !logs/.*
 images/*
 !images/.*
+
+# Confidential
 user/accounts
+user/config/plugins/email.yaml
 
 # OS Generated
 .DS_Store*

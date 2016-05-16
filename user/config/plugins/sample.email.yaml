@@ -1,0 +1,13 @@
+enabled: true
+from: blog@email.com
+to: blog@email.com
+mailer:
+  engine: smtp
+  smtp:
+    server:
+    port:
+    encryption: tls
+    user: ''
+    password: ''
+  sendmail:
+    bin: '/usr/sbin/sendmail'
