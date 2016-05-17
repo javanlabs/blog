@@ -2,7 +2,7 @@ home:
   alias: '/blog'
   hide_in_urls: true
 pages:
-  theme: javan
+  theme: javan-blog
   process:
     markdown: true
     twig: false

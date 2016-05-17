@@ -8,10 +8,10 @@
       "themes": "src/themes/"
     },
     "output": {
-      "packaged": "../user/themes/javan/dist/",
-      "uncompressed": "../user/themes/javan/dist/components/",
-      "compressed": "../user/themes/javan/dist/components/",
-      "themes": "../user/themes/javan/dist/themes/"
+      "packaged": "../user/themes/javan-blog/dist/",
+      "uncompressed": "../user/themes/javan-blog/dist/components/",
+      "compressed": "../user/themes/javan-blog/dist/components/",
+      "themes": "../user/themes/javan-blog/dist/themes/"
     },
     "clean": "../user/themes/javan/dist/"
   },
@@ -29,7 +29,9 @@
     "icon",
     "grid",
     "menu",
-    "visibility"
+    "visibility",
+    "sidebar",
+    "transition"
   ],
   "version": "2.1.8"
 }

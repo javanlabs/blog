@@ -31,3 +31,24 @@ social:
   -
     icon: facebook
     link: 'http://facebook.com/javancs'
+
+main_site: https://javan.co.id/
+
+menus:
+  - name: Company
+    url: "https://javan.co.id/about/"
+
+  - name: Solutions
+    url: "https://javan.co.id/solutions/"
+
+  - name: Team
+    url: "https://javan.co.id/team/"
+
+  - name: Careers
+    url: "https://javan.co.id/career/"
+
+  - name: Blog
+    url: "https://blog.javan.co.id"
+
+  - name: Contact Us
+    url: "https://javan.co.id/contact-us/"

@@ -1,0 +1,32 @@
+<header class="ui inverted basic segment page__cover">
+	<div class="ui cover"></div>
+	<div class="ui container">
+		<div class="ui large secondary inverted menu">
+			<a href="#" class="item sidebar visible-xs">
+				<i class="icon large sidebar"></i>
+			</a>
+			<a href="{{ site.main_site }}" class="item bottom aligned hidden-xs">
+				<img src="{{ url('theme://images/logo.png') }}" class="ui image small">
+			</a>
+
+			<div class="right menu hidden-xs">
+				{% for menu in site.menus %}
+				<a href="{{ menu.url }}" class="item">{{ menu.name }}</a>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="ui vertical segment">
+			<div class="ui grid">
+				<div class="row">
+					<div class="eight wide computer twelve wide mobile column left aligned">
+						<div class="ui hidden divider"></div>
+						<h2 class="ui inverted header">
+							We believe that technology can provide solution for most of problems. we won't stop until problem was solved.
+						</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
