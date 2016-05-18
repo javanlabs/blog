@@ -1,13 +1,39 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
+
+    {% set categories = page.taxonomy.category %}
+
+    {% set categoryRaws = [] %}
+
+    {% if categories %}
+        {% for value in categories %}
+        {% set categoryRaws = categoryRaws|merge(['<a href="' ~ base_url ~ '/category' ~ config.system.param_sep ~ '' ~ value ~'">' ~ value ~ '</a>']) %}
+        {% endfor %}
+    {% endif %}
+
     <div class="post--single post">
         <div class="ui basic segment center aligned">
             <h2 class="post__title">{{ page.title }}</h2>
-            <div class="muted post__meta">{{ page.date|date() }}</div>
+            <div class="muted post__meta">
+                {{ page.date|date() }}, in
+                {{ categoryRaws | join(', ') }}
+            </div>
         </div>
         <div class="post__body">
             {{ page.content }}
+
+            <div class="ui divider hidden"></div>
+            <div>
+                Tags:
+                {% set tags = page.taxonomy.tag %}
+
+                {% if tags %}
+                    {% for value in tags %}
+                        <a class="ui blue basic label" href="{{ base_url }}/tag{{ config.system.param_sep }}{{ value|e('url') }}">{{ value }}</a>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </div>
 

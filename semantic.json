@@ -31,7 +31,8 @@
     "menu",
     "visibility",
     "sidebar",
-    "transition"
+    "transition",
+    "label"
   ],
   "version": "2.1.8"
 }
