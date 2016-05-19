@@ -16,8 +16,12 @@
         <div class="ui basic segment center aligned">
             <h2 class="post__title">{{ page.title }}</h2>
             <div class="muted post__meta">
-                {{ page.date|date() }}, in
-                {{ categoryRaws | join(', ') }}
+                {{ page.date|date() }}
+
+                {% if categoryRaws %}
+                    , in
+                    {{ categoryRaws | join(', ') }}
+                {% endif %}
             </div>
         </div>
         <div class="post__body">
@@ -25,10 +29,9 @@
 
             <div class="ui divider hidden"></div>
             <div>
-                Tags:
                 {% set tags = page.taxonomy.tag %}
-
                 {% if tags %}
+                    Tags:
                     {% for value in tags %}
                         <a class="ui blue basic label" href="{{ base_url }}/tag{{ config.system.param_sep }}{{ value|e('url') }}">{{ value }}</a>
                     {% endfor %}
