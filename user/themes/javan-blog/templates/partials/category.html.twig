@@ -1,0 +1,17 @@
+<div class="ui secondary blue vertical fluid menu">
+    <div class="item header">Categories</div>
+    {% set category = grav.uri.params("category", true) %}
+
+    {% set is_all_categories = category == null %}
+    <a href="{{ base_url_absolute }}" class="item {{ is_all_categories ? 'active' : '' }}">All Categories</a>
+
+    {% set taxlist = taxonomylist.get() %}
+    {% if taxlist %}
+        {% for tax,value in taxlist['category'] %}
+        {% set current_page = (tax == category) ? 'active' : '' %}
+            <a href="{{ base_url }}/category{{ config.system.param_sep }}{{ tax|e('url') }}" class="item {{ current_page }}">
+                {{ tax }}
+            </a>
+        {% endfor %}
+    {% endif %}
+</div>
