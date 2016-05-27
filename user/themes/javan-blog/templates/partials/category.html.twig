@@ -2,10 +2,12 @@
     <div class="item header">Categories</div>
     {% set category = grav.uri.params("category", true) %}
 
-    {% set is_all_categories = category == null %}
+    {% set is_all_categories = category == '' and uri.path == '/' %}
+
     <a href="{{ base_url_absolute }}" class="item {{ is_all_categories ? 'active' : '' }}">All Categories</a>
 
     {% set taxlist = taxonomylist.get() %}
+
     {% if taxlist %}
         {% for tax,value in taxlist['category'] %}
         {% set current_page = (tax == category) ? 'active' : '' %}
