@@ -1,0 +1,10 @@
+# Global plugin configurations
+
+enabled: true               # Set to false to disable this plugin completely
+
+provider: "disqus"
+
+providers:
+  disqus:
+    shortname: "Admin Javan"
+    default_lang: en
