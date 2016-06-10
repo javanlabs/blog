@@ -6,5 +6,5 @@ provider: "disqus"
 
 providers:
   disqus:
-    shortname: "Admin Javan"
+    shortname: "blogjavan"
     default_lang: en
