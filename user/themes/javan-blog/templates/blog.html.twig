@@ -5,9 +5,12 @@
 {% block content %}
     <div class="posts">
         {% for page in collection %}
+            {% set authors = page.taxonomy.author %}
+            {% set author = authors | length ? authors[0] : site.author.name  %}
+
             <div class="post">
                 <h2 class="post__title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
-                <div class="muted post__meta">{{ page.date|date() }}</div>
+                <div class="muted post__meta">By {{ author }}. {{ page.date|date() }}</div>
                 <div class="ui divider hidden"></div>
                 <div class="post__body">
                     {{ page.summary }}
