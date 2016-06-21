@@ -18,3 +18,9 @@ popularity:
     daily: 30
     monthly: 12
     visitors: 20
+ldap:
+  url: 'ldap://ldap.javan.co.id'
+  admin_dn: 'cn=admin,dc=javan,dc=co,dc=id'
+  admin_password: kambingbakarcairo
+  search_dn: 'ou=people,dc=javan,dc=co,dc=id'
+  filter: 'uid={username}'
