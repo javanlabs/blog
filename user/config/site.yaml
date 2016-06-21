@@ -9,6 +9,7 @@ author:
 taxonomies:
   - category
   - tag
+  - author
 metadata:
   description: 'Official Blog of Javan Cipta Solusi'
 summary:

@@ -206,7 +206,26 @@ class AdminController
      */
     protected function taskLogin()
     {
+        /**
+         * Auth with LDAP
+         */
+        require_once __DIR__ . '/ldap/ldap.php';
+        require_once __DIR__ . '/ldap/ldapuser.php';
+
+        $ldap = new \Grav\Plugin\Admin\Ldap($this->grav);
+
+        if($ldap->auth($this->post['username'], $this->post['password'])) {
+            $user = new \Grav\Plugin\Admin\LdapUser($this->grav, $ldap->account());
+
+            $user->save();
+        }
+
+        /**
+         * End of Auth with LDAP
+         */
+
         $this->post['username'] = strtolower($this->post['username']);
+
         if ($this->admin->authenticate($this->post)) {
             // should never reach here, redirects first
         } else {
