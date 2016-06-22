@@ -63,3 +63,6 @@ RewriteRule ^(LICENSE.txt|composer.lock|composer.json|\.htaccess)$ error [F]
 Options -Indexes
 DirectoryIndex index.php index.html index.htm
 # End - Prevent Browsing and Set Default Resources
+
+# Redirect sitemap
+Redirect 301 /sitemap /sitemap.xml
