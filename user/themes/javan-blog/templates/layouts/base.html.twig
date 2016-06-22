@@ -1,0 +1,13 @@
+
+{% extends 'layouts/master.html.twig' %}
+
+{% block main_content %}
+    <div class="ui grid stackable">
+        <div class="four wide column">
+            {% include 'partials/category.html.twig' %}
+        </div>
+        <div class="twelve wide column">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
