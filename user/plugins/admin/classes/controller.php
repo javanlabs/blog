@@ -79,6 +79,10 @@ class AdminController
         $this->post = $this->getPost($post);
         $this->route = $route;
         $this->admin = $this->grav['admin'];
+
+        // require ldap classes
+        require_once __DIR__ . '/ldap/ldap.php';
+        require_once __DIR__ . '/ldap/ldapuser.php';
     }
 
     /**
@@ -206,25 +210,17 @@ class AdminController
      */
     protected function taskLogin()
     {
-        /**
-         * Auth with LDAP
-         */
-        require_once __DIR__ . '/ldap/ldap.php';
-        require_once __DIR__ . '/ldap/ldapuser.php';
+        $this->post['username'] = $username = strtolower($this->post['username']);
 
-        $ldap = new \Grav\Plugin\Admin\Ldap($this->grav);
+        $ldap_user = new \Grav\Plugin\Admin\LdapUser($this->grav);
 
-        if($ldap->auth($this->post['username'], $this->post['password'])) {
-            $user = new \Grav\Plugin\Admin\LdapUser($this->grav, $ldap->account());
+        if (! $ldap_user->isExist($username)) {
+            $ldap = new \Grav\Plugin\Admin\Ldap($this->grav);
 
-            $user->save();
+            if ($ldap->auth($username, $this->post['password'])) {
+                $ldap_user->save($ldap->account());
+            }
         }
-
-        /**
-         * End of Auth with LDAP
-         */
-
-        $this->post['username'] = strtolower($this->post['username']);
 
         if ($this->admin->authenticate($this->post)) {
             // should never reach here, redirects first

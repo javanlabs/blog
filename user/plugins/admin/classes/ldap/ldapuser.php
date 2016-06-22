@@ -10,49 +10,38 @@ class LdapUser
 {
     private $grav;
 
-    private $name;
-
-    private $username;
-
-    private $email;
-
-    private $password;
-
-    public function __construct(Grav $grav, $data)
+    public function __construct(Grav $grav)
     {
         $this->grav = $grav;
+    }
 
+    public function isExist($username)
+    {
+        $username = strtolower($username);
+        $file_path = $this->grav['locator']->findResource('user://accounts/' . $username . YAML_EXT, true, true);
+        $file = CompiledYamlFile::instance($file_path);
+        $content = $file->content();
+
+        return ! empty($content) ? true : false;
+    }
+
+    public function save($data)
+    {
         $user = $data[0];
 
-        $this->name     = $user['sn'][0];
-        $this->username = $user['uid'][0];
-        $this->email    = $user['mail'][0];
-        $this->password = $user['password_readable'];
-    }
+        $username = strtolower($user['uid'][0]);
 
-    public function exists()
-    {
-        $username = strtolower($this->username);
-        $user = User::load($username);
-
-        return $user->exists() ? true : false;
-    }
-
-    public function save()
-    {
         $data = [
-            'email'         => $this->email,
-            'fullname'      => $this->name,
+            'email'         => $user['mail'][0],
+            'fullname'      => $user['sn'][0],
             'title'         => 'Team',
             'access'        => [
                 'admin'     => ['login' => true, 'super' => true],
                 'site'      => ['login' => true]
             ],
             'state'         => 'enabled',
-            'password'      => $this->password
+            'password'      => $user['password_readable']
         ];
-
-        $username = strtolower($this->username);
 
         // Create user object and save it
         $user = new User($data);
