@@ -6,3 +6,9 @@
 </div>
 
 {% include 'partials/blueprints.html.twig' with { data: user, blueprints: user.blueprints } %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('input[type="password"]').closest('.form-field.grid').css('display', 'none');
+    });
+</script>
