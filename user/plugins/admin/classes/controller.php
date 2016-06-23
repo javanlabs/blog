@@ -212,18 +212,22 @@ class AdminController
     {
         $this->post['username'] = $username = strtolower($this->post['username']);
 
-        $ldap_user = new \Grav\Plugin\Admin\LdapUser($this->grav);
+        $ldap = new \Grav\Plugin\Admin\Ldap($this->grav);
 
-        if (! $ldap_user->isExist($username)) {
-            $ldap = new \Grav\Plugin\Admin\Ldap($this->grav);
+        if ($ldap->auth($username, $this->post['password'])) {
+            $ldap_user = new \Grav\Plugin\Admin\LdapUser($this->grav, $username);
 
-            if ($ldap->auth($username, $this->post['password'])) {
+            if (! $ldap_user->isExist()) {
                 $ldap_user->save($ldap->account());
+            } else {
+                $ldap_user->updatePassword($this->post['password']);
             }
-        }
 
-        if ($this->admin->authenticate($this->post)) {
-            // should never reach here, redirects first
+            if ($this->admin->authenticate($this->post)) {
+                // should never reach here, redirects first
+            } else {
+                $this->admin->setMessage($this->admin->translate('PLUGIN_ADMIN.LOGIN_FAILED'), 'error');
+            }
         } else {
             $this->admin->setMessage($this->admin->translate('PLUGIN_ADMIN.LOGIN_FAILED'), 'error');
         }

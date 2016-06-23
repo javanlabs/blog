@@ -10,19 +10,30 @@ class LdapUser
 {
     private $grav;
 
-    public function __construct(Grav $grav)
+    private $username;
+
+    public function __construct(Grav $grav, $username)
     {
         $this->grav = $grav;
+
+        $this->username = $username;
     }
 
-    public function isExist($username)
+    private function getData()
     {
-        $username = strtolower($username);
-        $file_path = $this->grav['locator']->findResource('user://accounts/' . $username . YAML_EXT, true, true);
+        $username = strtolower($this->username);
+        $file_path = $this->grav['locator']->findResource('user://accounts/' . $this->username . YAML_EXT, true, true);
         $file = CompiledYamlFile::instance($file_path);
-        $content = $file->content();
+        $data = $file->content();
 
-        return ! empty($content) ? true : false;
+        return $data;
+    }
+
+    public function isExist()
+    {
+        $data = $this->getData();
+
+        return ! empty($data) ? true : false;
     }
 
     public function save($data)
@@ -46,6 +57,20 @@ class LdapUser
         // Create user object and save it
         $user = new User($data);
         $file = CompiledYamlFile::instance($this->grav['locator']->findResource('user://accounts/' . $username . YAML_EXT, true, true));
+        $user->file($file);
+        $user->save();
+    }
+
+    public function updatePassword($password)
+    {
+        $data = $this->getData();
+
+        unset($data['hashed_password']);
+
+        $data['password'] = $password;
+
+        $user = new User($data);
+        $file = CompiledYamlFile::instance($this->grav['locator']->findResource('user://accounts/' . $this->username . YAML_EXT, true, true));
         $user->file($file);
         $user->save();
     }
