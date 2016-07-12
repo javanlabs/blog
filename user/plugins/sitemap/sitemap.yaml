@@ -3,3 +3,5 @@ route: '/sitemap'
 ignores:
   - /blog/blog-post-to-ignore
   - /ignore-this-route
+custome:
+  https: true
